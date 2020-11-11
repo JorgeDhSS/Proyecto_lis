@@ -16,6 +16,7 @@
 #include <cstring>
 #include <string>
 #include "ListaInventario.h"
+#include "ListaRegistro.h"
 #include "Producto.h"
 #include "gestorInventario.h"
 using namespace std;
@@ -70,7 +71,8 @@ int main(int argc, char** argv) {
     ListaInventario *lista;
     lista = &LI;
     gestorInventario gI(lista);
-    while(opcion!=8){
+    ListaRegistro LR;
+    while(opcion!=10){
         cout<<"______________BIENNVENIDO______________"<<endl;
         cout<<"Elige una opción:"<<endl;
         cout<<"1. Agregar producto"<<endl;
@@ -80,7 +82,9 @@ int main(int argc, char** argv) {
         cout<<"5. Mostrar productos"<<endl;
         cout<<"6. Salidas del inventario"<<endl;
         cout<<"7. Entradas al inventario"<<endl;
-        cout<<"8. Salir"<<endl;
+        cout<<"8. Ver salidas del inventario"<<endl;
+        cout<<"9. Ver entradas al inventario"<<endl;
+        cout<<"10. Salir"<<endl;
         cin>>opcion;
         switch(opcion){
             case 1:
@@ -114,6 +118,12 @@ int main(int argc, char** argv) {
                 gI.subirRegistro(pedirCantidad(), pedirClave());
                 break;
             case 8:
+                LR.mostrar(2);
+                break;
+            case 9:
+                LR.mostrar(1);
+                break;
+            case 10:
                 cout<<"Gracias por usar el sistema :)"<<endl;
                 break;
             default:
